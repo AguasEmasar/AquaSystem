@@ -1,0 +1,197 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\ProyectoAgua\\AquaSystemBackend\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{A01286E7-5A6C-4C13-A891-0C1BB1846DE5}|LOGIN\\LOGIN.csproj|c:\\proyectoagua\\aquasystembackend\\login\\appsettings.development.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{A01286E7-5A6C-4C13-A891-0C1BB1846DE5}|LOGIN\\LOGIN.csproj|solutionrelative:login\\appsettings.development.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A01286E7-5A6C-4C13-A891-0C1BB1846DE5}|LOGIN\\LOGIN.csproj|c:\\proyectoagua\\aquasystembackend\\login\\services\\emailservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A01286E7-5A6C-4C13-A891-0C1BB1846DE5}|LOGIN\\LOGIN.csproj|solutionrelative:login\\services\\emailservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A01286E7-5A6C-4C13-A891-0C1BB1846DE5}|LOGIN\\LOGIN.csproj|c:\\proyectoagua\\aquasystembackend\\login\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A01286E7-5A6C-4C13-A891-0C1BB1846DE5}|LOGIN\\LOGIN.csproj|solutionrelative:login\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A01286E7-5A6C-4C13-A891-0C1BB1846DE5}|LOGIN\\LOGIN.csproj|c:\\proyectoagua\\aquasystembackend\\login\\services\\userservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A01286E7-5A6C-4C13-A891-0C1BB1846DE5}|LOGIN\\LOGIN.csproj|solutionrelative:login\\services\\userservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A01286E7-5A6C-4C13-A891-0C1BB1846DE5}|LOGIN\\LOGIN.csproj|c:\\proyectoagua\\aquasystembackend\\login\\dtos\\userdtos\\forgotpassworddto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A01286E7-5A6C-4C13-A891-0C1BB1846DE5}|LOGIN\\LOGIN.csproj|solutionrelative:login\\dtos\\userdtos\\forgotpassworddto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A01286E7-5A6C-4C13-A891-0C1BB1846DE5}|LOGIN\\LOGIN.csproj|c:\\proyectoagua\\aquasystembackend\\login\\dtos\\correodtos\\confirmemaildto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A01286E7-5A6C-4C13-A891-0C1BB1846DE5}|LOGIN\\LOGIN.csproj|solutionrelative:login\\dtos\\correodtos\\confirmemaildto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A01286E7-5A6C-4C13-A891-0C1BB1846DE5}|LOGIN\\LOGIN.csproj|c:\\proyectoagua\\aquasystembackend\\login\\services\\notificationservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A01286E7-5A6C-4C13-A891-0C1BB1846DE5}|LOGIN\\LOGIN.csproj|solutionrelative:login\\services\\notificationservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A01286E7-5A6C-4C13-A891-0C1BB1846DE5}|LOGIN\\LOGIN.csproj|c:\\proyectoagua\\aquasystembackend\\login\\startup.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A01286E7-5A6C-4C13-A891-0C1BB1846DE5}|LOGIN\\LOGIN.csproj|solutionrelative:login\\startup.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A01286E7-5A6C-4C13-A891-0C1BB1846DE5}|LOGIN\\LOGIN.csproj|c:\\proyectoagua\\aquasystembackend\\login\\controllers\\registrationwatercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A01286E7-5A6C-4C13-A891-0C1BB1846DE5}|LOGIN\\LOGIN.csproj|solutionrelative:login\\controllers\\registrationwatercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A01286E7-5A6C-4C13-A891-0C1BB1846DE5}|LOGIN\\LOGIN.csproj|c:\\proyectoagua\\aquasystembackend\\login\\controllers\\communicatecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A01286E7-5A6C-4C13-A891-0C1BB1846DE5}|LOGIN\\LOGIN.csproj|solutionrelative:login\\controllers\\communicatecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A01286E7-5A6C-4C13-A891-0C1BB1846DE5}|LOGIN\\LOGIN.csproj|c:\\proyectoagua\\aquasystembackend\\login\\database\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A01286E7-5A6C-4C13-A891-0C1BB1846DE5}|LOGIN\\LOGIN.csproj|solutionrelative:login\\database\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "UserService.cs",
+              "DocumentMoniker": "C:\\ProyectoAgua\\AquaSystemBackend\\LOGIN\\Services\\UserService.cs",
+              "RelativeDocumentMoniker": "LOGIN\\Services\\UserService.cs",
+              "ToolTip": "C:\\ProyectoAgua\\AquaSystemBackend\\LOGIN\\Services\\UserService.cs",
+              "RelativeToolTip": "LOGIN\\Services\\UserService.cs",
+              "ViewState": "AgIAAIYBAAAAAAAAAAAAAJwBAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-07T16:39:37.156Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "appsettings.Development.json",
+              "DocumentMoniker": "C:\\ProyectoAgua\\AquaSystemBackend\\LOGIN\\appsettings.Development.json",
+              "RelativeDocumentMoniker": "LOGIN\\appsettings.Development.json",
+              "ToolTip": "C:\\ProyectoAgua\\AquaSystemBackend\\LOGIN\\appsettings.Development.json",
+              "RelativeToolTip": "LOGIN\\appsettings.Development.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAjAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-05-07T16:21:05.02Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "ForgotPasswordDto.cs",
+              "DocumentMoniker": "C:\\ProyectoAgua\\AquaSystemBackend\\LOGIN\\Dtos\\UserDTOs\\ForgotPasswordDto.cs",
+              "RelativeDocumentMoniker": "LOGIN\\Dtos\\UserDTOs\\ForgotPasswordDto.cs",
+              "ToolTip": "C:\\ProyectoAgua\\AquaSystemBackend\\LOGIN\\Dtos\\UserDTOs\\ForgotPasswordDto.cs",
+              "RelativeToolTip": "LOGIN\\Dtos\\UserDTOs\\ForgotPasswordDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-07T17:33:05.051Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "AccountController.cs",
+              "DocumentMoniker": "C:\\ProyectoAgua\\AquaSystemBackend\\LOGIN\\Controllers\\AccountController.cs",
+              "RelativeDocumentMoniker": "LOGIN\\Controllers\\AccountController.cs",
+              "ToolTip": "C:\\ProyectoAgua\\AquaSystemBackend\\LOGIN\\Controllers\\AccountController.cs",
+              "RelativeToolTip": "LOGIN\\Controllers\\AccountController.cs",
+              "ViewState": "AgIAALcAAAAAAAAAAAAuwO0AAAAeAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-07T16:36:51.983Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "EmailService.cs",
+              "DocumentMoniker": "C:\\ProyectoAgua\\AquaSystemBackend\\LOGIN\\Services\\EmailService.cs",
+              "RelativeDocumentMoniker": "LOGIN\\Services\\EmailService.cs",
+              "ToolTip": "C:\\ProyectoAgua\\AquaSystemBackend\\LOGIN\\Services\\EmailService.cs",
+              "RelativeToolTip": "LOGIN\\Services\\EmailService.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAACcAAAAmAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-07T16:35:28.08Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "ConfirmEmailDto.cs",
+              "DocumentMoniker": "C:\\ProyectoAgua\\AquaSystemBackend\\LOGIN\\Dtos\\CorreoDTOs\\ConfirmEmailDto.cs",
+              "RelativeDocumentMoniker": "LOGIN\\Dtos\\CorreoDTOs\\ConfirmEmailDto.cs",
+              "ToolTip": "C:\\ProyectoAgua\\AquaSystemBackend\\LOGIN\\Dtos\\CorreoDTOs\\ConfirmEmailDto.cs",
+              "RelativeToolTip": "LOGIN\\Dtos\\CorreoDTOs\\ConfirmEmailDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-07T17:32:47.462Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "NotificationService.cs",
+              "DocumentMoniker": "C:\\ProyectoAgua\\AquaSystemBackend\\LOGIN\\Services\\NotificationService.cs",
+              "RelativeDocumentMoniker": "LOGIN\\Services\\NotificationService.cs",
+              "ToolTip": "C:\\ProyectoAgua\\AquaSystemBackend\\LOGIN\\Services\\NotificationService.cs",
+              "RelativeToolTip": "LOGIN\\Services\\NotificationService.cs",
+              "ViewState": "AgIAAEgAAAAAAAAAAAAuwFsAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-01T20:32:37.905Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "RegistrationWaterController.cs",
+              "DocumentMoniker": "C:\\ProyectoAgua\\AquaSystemBackend\\LOGIN\\Controllers\\RegistrationWaterController.cs",
+              "RelativeDocumentMoniker": "LOGIN\\Controllers\\RegistrationWaterController.cs",
+              "ToolTip": "C:\\ProyectoAgua\\AquaSystemBackend\\LOGIN\\Controllers\\RegistrationWaterController.cs",
+              "RelativeToolTip": "LOGIN\\Controllers\\RegistrationWaterController.cs",
+              "ViewState": "AgIAADIAAAAAAAAAAAAAwH0AAAAPAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-01T20:29:12.526Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "CommunicateController.cs",
+              "DocumentMoniker": "C:\\ProyectoAgua\\AquaSystemBackend\\LOGIN\\Controllers\\CommunicateController.cs",
+              "RelativeDocumentMoniker": "LOGIN\\Controllers\\CommunicateController.cs",
+              "ToolTip": "C:\\ProyectoAgua\\AquaSystemBackend\\LOGIN\\Controllers\\CommunicateController.cs",
+              "RelativeToolTip": "LOGIN\\Controllers\\CommunicateController.cs",
+              "ViewState": "AgIAAF8AAAAAAAAAAAAAAGYAAAA+AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-01T20:29:08.521Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Startup.cs",
+              "DocumentMoniker": "C:\\ProyectoAgua\\AquaSystemBackend\\LOGIN\\Startup.cs",
+              "RelativeDocumentMoniker": "LOGIN\\Startup.cs",
+              "ToolTip": "C:\\ProyectoAgua\\AquaSystemBackend\\LOGIN\\Startup.cs",
+              "RelativeToolTip": "LOGIN\\Startup.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAKAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-01T22:02:16.546Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "ApplicationDbContext.cs",
+              "DocumentMoniker": "C:\\ProyectoAgua\\AquaSystemBackend\\LOGIN\\Database\\ApplicationDbContext.cs",
+              "RelativeDocumentMoniker": "LOGIN\\Database\\ApplicationDbContext.cs",
+              "ToolTip": "C:\\ProyectoAgua\\AquaSystemBackend\\LOGIN\\Database\\ApplicationDbContext.cs",
+              "RelativeToolTip": "LOGIN\\Database\\ApplicationDbContext.cs",
+              "ViewState": "AgIAAEQAAAAAAAAAAAAwwGAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-02T16:38:58.783Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
