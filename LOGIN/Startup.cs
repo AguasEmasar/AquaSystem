@@ -9,6 +9,7 @@ using Pomelo.EntityFrameworkCore.MySql.Infrastructure;
 using LOGIN.Services;
 using LOGIN.Dtos;
 using LOGIN.Dtos.NotificationDtos;
+using Serilog;
 
 namespace LOGIN
 {
@@ -39,7 +40,7 @@ namespace LOGIN
                 options.UseMySql(connString, ServerVersion.AutoDetect(connString),
                     mySqlOptions => mySqlOptions.SchemaBehavior(MySqlSchemaBehavior.Ignore)));
 
-            // Add custom services
+            // Servicios personalizados
             services.AddTransient<IUserService, UserService>();
             services.AddTransient<IEmailService, EmailService>();
             services.AddTransient<IComunicateServices, ComunicateServices>();
@@ -54,22 +55,12 @@ namespace LOGIN
             services.AddTransient<IRegistrationWaterService, RegistrationWaterService>();
             services.AddTransient<IRegistrationWaterNeighborhoodsColoniesService, RegistrationWaterNeighborhoodsColoniesService>();
             services.AddTransient<IStateService, StateService>();
-            //Services notification
-            // Agrega después de builder.Services.AddDbContext
+
             services.Configure<DeviceNotificationRequest>(Configuration.GetSection("Firebase"));
             services.AddScoped<INotificationService, NotificationService>();
 
-            // Asegúrate que el archivo firebase-config.json esté en el directorio correcto
-            //var firebaseConfigPath = Path.Combine(Directory.GetCurrentDirectory(), "firebase-config.json");
-            //if (!File.Exists(firebaseConfigPath))
-            //{
-            //    throw new FileNotFoundException("Archivo de configuración de Firebase no encontrado");
-            //}
-
-            // Add AutoMapper service
             services.AddAutoMapper(typeof(Startup));
 
-            // Add Identity
             services.AddIdentity<UserEntity, IdentityRole>(options =>
             {
                 options.SignIn.RequireConfirmedAccount = false;
@@ -81,7 +72,6 @@ namespace LOGIN
             .AddEntityFrameworkStores<ApplicationDbContext>()
             .AddDefaultTokenProviders();
 
-            // JWT Authentication
             services.AddAuthentication(options =>
             {
                 options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
@@ -101,54 +91,43 @@ namespace LOGIN
                 };
             });
 
-            // Configure CORS
             services.AddCors(options =>
             {
-               options.AddPolicy(_corsPolicy, builder =>
-            {
-                builder.AllowAnyOrigin()
-                       .AllowAnyHeader()
-                       .AllowAnyMethod()
-                       .WithExposedHeaders("Content-Disposition");
-            });
+                options.AddPolicy(_corsPolicy, builder =>
+                {
+                    builder.AllowAnyOrigin()
+                           .AllowAnyHeader()
+                           .AllowAnyMethod()
+                           .WithExposedHeaders("Content-Disposition");
+                });
             });
 
-            // Add Swagger
             services.AddEndpointsApiExplorer();
             services.AddSwaggerGen();
 
-            // Add Controllers
             services.AddControllers();
         }
 
-
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
-                          
             app.UseSwagger();
             app.UseSwaggerUI();
-            //{
-            //    c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1");
-            //    c.RoutePrefix = string.Empty;
-            //});
-            //{
-            //    app.UseExceptionHandler("/error");
-            //    app.UseHsts();
-            //}
 
-            //app.UseHttpsRedirection();
+            // Middleware Serilog
+            app.UseSerilogRequestLogging(options =>
+            {
+                options.MessageTemplate = "HTTP {RequestMethod} {RequestPath} responded {StatusCode} in {Elapsed:0.0000} ms";
+            });
+
             app.UseRouting();
-
-            // Use CORS
             app.UseCors(_corsPolicy);
-
-            // Use Authentication
             app.UseAuthentication();
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
+                endpoints.MapGet("/health", () => Results.Ok("Healthy"));
             });
         }
     }
