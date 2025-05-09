@@ -88,4 +88,3 @@ async Task InitializeDatabaseAsync(IHost app)
         throw;
     }
 }
-}
