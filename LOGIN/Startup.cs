@@ -104,15 +104,13 @@ namespace LOGIN
             // Configure CORS
             services.AddCors(options =>
             {
-                options.AddPolicy(_corsPolicy, builder =>
-                {
-                    builder.WithOrigins(Configuration["FrontendURL"])
-                           .AllowAnyHeader()
-                           .AllowAnyMethod()
-                           .AllowCredentials()
-                           .SetIsOriginAllowedToAllowWildcardSubdomains()
-                           .WithExposedHeaders("Content-Disposition");
-                });
+               options.AddPolicy(_corsPolicy, builder =>
+            {
+                builder.AllowAnyOrigin()
+                       .AllowAnyHeader()
+                       .AllowAnyMethod()
+                       .WithExposedHeaders("Content-Disposition");
+            });
             });
 
             // Add Swagger
