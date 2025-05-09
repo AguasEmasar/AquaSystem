@@ -12,7 +12,8 @@ Log.Logger = new LoggerConfiguration()
     .ReadFrom.Configuration(builder.Configuration)
     .CreateLogger();
 
-
+builder.Host.UseSerilog(); // Ingracion Serilog con la aplicación
+builder.WebHost.UseUrls("http://0.0.0.0:4000");
 
 try
 {
