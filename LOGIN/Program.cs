@@ -1,69 +1,86 @@
+using dotenv.net;
+using LOGIN;
+using LOGIN.Database;
+using LOGIN.Entities;
+using Microsoft.AspNetCore.Identity;
+using Serilog;
+
+var builder = WebApplication.CreateBuilder(args);
+
+// Configurar Serilog
+Log.Logger = new LoggerConfiguration()
+    .ReadFrom.Configuration(builder.Configuration)
+    .Enrich.FromLogContext()
+    .WriteTo.Console()
+    .CreateLogger();
+
+builder.Host.UseSerilog();
+builder.WebHost.UseUrls("http://0.0.0.0:4000");
+
+try
 {
-  "Jwt": {
-    "ValidIssuer": "http://localhost:5173",
-    "ValidAudience": "https://localhost:5088",
-    "Secret": "QDNm%dDQ!pH5VDVGWEM51Y4LYMRdh6sWUEML9dwL!P2vn3hhWMWkgDb",
-    "ExpiryMinutes": 60,
-    "RefreshTokenExpiry": 1440
-  },
-  "Firebase": {
-    "CredentialPath": "firebase-config.json"
-  },
-  "FrontendURL": "http://localhost:5173",
-  "ConnectionStrings": {
-    //"DefaultConnection": "Server=localhost;Database=databaseaguas;User=root;Password=frt123;"
-    "DefaultConnection": "Server=192.168.10.138,3306;Database=dbaqs;User=angel;Password=yx4SBK"
-  },
-  "EmailSettings": {
-    "SmtpServer": "smtp.gmail.com",
-    "SmtpPort": 587,
-    "SmtpUsername": "aguassantarosa6@gmail.com",
-    "SmtpPassword": "tpcixaxfxwvscobc"
-  },
-  "ApiConfig": {
-    "BaseUrl": "http://192.168.10.254:8180/simafiws/consulta/publicos",
-    "BaseUrlComment": "http://192.168.10.254:8180/simafiws2025/consulta/comentario",
-    "BaseUrlHistory": "http://192.168.10.254:8180/simafiws2025/historial/publicos",
-    "AuthId": "011",
-    "AuthKey": "924703863DFB32C4AF1436B17B63ED1A"
-  },
-  "Serilog": {
-    "MinimumLevel": {
-      "Default": "Information",
-      "Override": {
-        "Microsoft": "Warning",
-        "System": "Warning"
-      }
-    },
-    "WriteTo": [
-      {
-        "Name": "Console" // ver los logs en la consola
-      },
-      {
-        "Name": "MySQL",
-        "Args": {
-          "connectionString": "Server=192.168.10.138,3306;Database=dbaqs;User=angel;Password=yx4SBK",
-          //"connectionString": "Server=localhost;Database=Aquasystem;User=root;Password=frt123;",
-          "tableName": "Logs",
-          "restrictedToMinimumLevel": "Information"
-        }
-      }
-    ],
-    "Enrich": [ "FromLogContext", "WithMachineName", "WithThreadId" ]
-  },
+    Log.Information("Starting web application");
+    
+    var startup = new Startup(builder.Configuration);
+    startup.ConfigureServices(builder.Services);
 
-  "Logging": {
-    "LogLevel": {
-      "Default": "Information",
-      "Microsoft.AspNetCore": "Warning"
-    }
-  },
+    var app = builder.Build();
+    startup.Configure(app, app.Environment);
 
-  "Kestrel": {
-    "Endpoints": {
-      "Http": {
-        "Url": "http://*:5088"
-      }
+    Log.Information("Initializing database...");
+    await InitializeDatabaseAsync(app);
+
+    app.UseSwagger();
+    app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "API v1"));
+    
+    app.UseRouting();
+    app.UseCors("CorsPolicy");
+    app.UseAuthentication();
+    app.UseAuthorization();
+
+    app.MapControllers();
+    app.MapGet("/health", () => Results.Ok("Healthy"));
+
+    DotEnv.Load(options: new DotEnvOptions(probeForEnv: true));
+
+    app.UseSerilogRequestLogging(options =>
+    {
+        options.MessageTemplate = "HTTP {RequestMethod} {RequestPath} responded {StatusCode} in {Elapsed:0.0000} ms";
+    });
+
+    Log.Information("Application started successfully");
+    app.Run();
+}
+catch (Exception ex)
+{
+    Log.Fatal(ex, "Application terminated unexpectedly");
+}
+finally
+{
+    Log.CloseAndFlush();
+}
+
+async Task InitializeDatabaseAsync(IHost app)
+{
+    using var scope = app.Services.CreateScope();
+    var services = scope.ServiceProvider;
+    var logger = services.GetRequiredService<ILogger<Program>>();
+
+    try
+    {
+        var context = services.GetRequiredService<ApplicationDbContext>();
+        var userManager = services.GetRequiredService<UserManager<UserEntity>>();
+        var roleManager = services.GetRequiredService<RoleManager<IdentityRole>>();
+
+        logger.LogInformation("Applying pending migrations...");
+        await context.Database.MigrateAsync();
+
+        logger.LogInformation("Seeding initial data...");
+        await ApplicationDbSeeder.InitializeAsync(userManager, roleManager, context, logger);
     }
-  }
+    catch (Exception ex)
+    {
+        logger.LogError(ex, "An error occurred while initializing the database");
+        throw;
+    }
 }
