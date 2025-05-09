@@ -12,7 +12,7 @@ Log.Logger = new LoggerConfiguration()
     .ReadFrom.Configuration(builder.Configuration)
     .CreateLogger();
 
-builder.Host.UseSerilog(); // Ingracion Serilog con la aplicación
+builder.Host.UseSerilog(); // Ingracion Serilog con la aplicaciÃ³n
 
 try
 {
@@ -31,6 +31,8 @@ try
     app.UseAuthorization();
     app.MapControllers();
 
+    app.MapGet("/health", () => Results.Ok("Healthy"));
+
     DotEnv.Load(options: new DotEnvOptions(probeForEnv: true));
 
     // Middleware para logging de requests
@@ -43,7 +45,7 @@ try
 }
 catch (Exception ex)
 {
-    Log.Fatal(ex, "La aplicación se detuvo inesperadamente");
+    Log.Fatal(ex, "La aplicaciÃ³n se detuvo inesperadamente");
 }
 finally
 {
