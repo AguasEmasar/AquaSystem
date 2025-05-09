@@ -69,13 +69,17 @@ async Task InitializeDatabaseAsync(IHost app)
     try
     {
         var context = services.GetRequiredService<ApplicationDbContext>();
-        var userManager = services.GetRequiredService<UserManager<UserEntity>>();
-        var roleManager = services.GetRequiredService<RoleManager<IdentityRole>>();
-
-        logger.LogInformation("Applying pending migrations...");
-        await context.Database.MigrateAsync();
+        
+        // Verifica si la base de datos existe, si no la crea y aplica migraciones
+        if (context.Database.GetPendingMigrations().Any())
+        {
+            logger.LogInformation("Applying pending migrations...");
+            await context.Database.MigrateAsync();
+        }
 
         logger.LogInformation("Seeding initial data...");
+        var userManager = services.GetRequiredService<UserManager<UserEntity>>();
+        var roleManager = services.GetRequiredService<RoleManager<IdentityRole>>();
         await ApplicationDbSeeder.InitializeAsync(userManager, roleManager, context, logger);
     }
     catch (Exception ex)
@@ -83,4 +87,5 @@ async Task InitializeDatabaseAsync(IHost app)
         logger.LogError(ex, "An error occurred while initializing the database");
         throw;
     }
+}
 }
