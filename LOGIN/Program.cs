@@ -25,10 +25,10 @@ try
     startup.ConfigureServices(builder.Services);
 
     var app = builder.Build();
-    startup.Configure(app, app.Environment);
-
-    Log.Information("Initializing database...");
-    await InitializeDatabaseAsync(app);
+    
+    // Eliminar o comentar esta línea para evitar la inicialización de la base de datos al arrancar
+    // Log.Information("Initializing database...");
+    // await InitializeDatabaseAsync(app);
 
     app.UseSwagger();
     app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "API v1"));
