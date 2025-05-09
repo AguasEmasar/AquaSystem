@@ -1,59 +1,69 @@
-using Serilog;
-using LOGIN;
-using Microsoft.AspNetCore.Identity;
-using LOGIN.Entities;
-using LOGIN.Database;
-
-var builder = WebApplication.CreateBuilder(args);
-
-// Configurar Serilog
-Log.Logger = new LoggerConfiguration()
-    .ReadFrom.Configuration(builder.Configuration)
-    .CreateLogger();
-
-builder.Host.UseSerilog();
-builder.WebHost.UseUrls("http://0.0.0.0:4000");
-
-try
 {
-    var startup = new Startup(builder.Configuration);
+  "Jwt": {
+    "ValidIssuer": "http://localhost:5173",
+    "ValidAudience": "https://localhost:5088",
+    "Secret": "QDNm%dDQ!pH5VDVGWEM51Y4LYMRdh6sWUEML9dwL!P2vn3hhWMWkgDb",
+    "ExpiryMinutes": 60,
+    "RefreshTokenExpiry": 1440
+  },
+  "Firebase": {
+    "CredentialPath": "firebase-config.json"
+  },
+  "FrontendURL": "http://localhost:5173",
+  "ConnectionStrings": {
+    //"DefaultConnection": "Server=localhost;Database=databaseaguas;User=root;Password=frt123;"
+    "DefaultConnection": "Server=192.168.10.138,3306;Database=dbaqs;User=angel;Password=yx4SBK"
+  },
+  "EmailSettings": {
+    "SmtpServer": "smtp.gmail.com",
+    "SmtpPort": 587,
+    "SmtpUsername": "aguassantarosa6@gmail.com",
+    "SmtpPassword": "tpcixaxfxwvscobc"
+  },
+  "ApiConfig": {
+    "BaseUrl": "http://192.168.10.254:8180/simafiws/consulta/publicos",
+    "BaseUrlComment": "http://192.168.10.254:8180/simafiws2025/consulta/comentario",
+    "BaseUrlHistory": "http://192.168.10.254:8180/simafiws2025/historial/publicos",
+    "AuthId": "011",
+    "AuthKey": "924703863DFB32C4AF1436B17B63ED1A"
+  },
+  "Serilog": {
+    "MinimumLevel": {
+      "Default": "Information",
+      "Override": {
+        "Microsoft": "Warning",
+        "System": "Warning"
+      }
+    },
+    "WriteTo": [
+      {
+        "Name": "Console" // ver los logs en la consola
+      },
+      {
+        "Name": "MySQL",
+        "Args": {
+          "connectionString": "Server=192.168.10.138,3306;Database=dbaqs;User=angel;Password=yx4SBK",
+          //"connectionString": "Server=localhost;Database=Aquasystem;User=root;Password=frt123;",
+          "tableName": "Logs",
+          "restrictedToMinimumLevel": "Information"
+        }
+      }
+    ],
+    "Enrich": [ "FromLogContext", "WithMachineName", "WithThreadId" ]
+  },
 
-    startup.ConfigureServices(builder.Services);
-
-    var app = builder.Build();
-
-    startup.Configure(app, app.Environment);
-
-    await InitializeDatabaseAsync(app);
-
-    app.Run();
-}
-catch (Exception ex)
-{
-    Log.Fatal(ex, "La aplicación se detuvo inesperadamente");
-}
-finally
-{
-    Log.CloseAndFlush();
-}
-
-async Task InitializeDatabaseAsync(IHost app)
-{
-    using var scope = app.Services.CreateScope();
-    var services = scope.ServiceProvider;
-    var loggerFactory = services.GetRequiredService<ILoggerFactory>();
-
-    try
-    {
-        var userManager = services.GetRequiredService<UserManager<UserEntity>>();
-        var roleManager = services.GetRequiredService<RoleManager<IdentityRole>>();
-        var context = services.GetRequiredService<ApplicationDbContext>();
-
-        await ApplicationDbSeeder.InitializeAsync(userManager, roleManager, context, loggerFactory);
+  "Logging": {
+    "LogLevel": {
+      "Default": "Information",
+      "Microsoft.AspNetCore": "Warning"
     }
-    catch (Exception ex)
-    {
-        Log.Error(ex, "Error al inicializar la base de datos");
-        throw;
+  },
+
+  "Kestrel": {
+    "Endpoints": {
+      "Http": {
+        "Url": "http://*:5088"
+      }
     }
+  }
 }
