@@ -12,7 +12,7 @@ Log.Logger = new LoggerConfiguration()
     .ReadFrom.Configuration(builder.Configuration)
     .CreateLogger();
 
-builder.Host.UseSerilog(); // Ingracion Serilog con la aplicación
+
 
 try
 {
