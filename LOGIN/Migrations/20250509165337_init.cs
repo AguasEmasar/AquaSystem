@@ -19,9 +19,6 @@ namespace LOGIN.Migrations
                 name: "post");
 
             migrationBuilder.EnsureSchema(
-                name: "notifications");
-
-            migrationBuilder.EnsureSchema(
                 name: "reports");
 
             migrationBuilder.EnsureSchema(
@@ -42,25 +39,6 @@ namespace LOGIN.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_blocks", x => x.id);
-                })
-                .Annotation("MySql:CharSet", "utf8mb4");
-
-            migrationBuilder.CreateTable(
-                name: "device_tokens",
-                schema: "notifications",
-                columns: table => new
-                {
-                    id = table.Column<Guid>(type: "char(36)", nullable: false, collation: "ascii_general_ci"),
-                    token = table.Column<string>(type: "varchar(500)", maxLength: 500, nullable: false)
-                        .Annotation("MySql:CharSet", "utf8mb4"),
-                    platform = table.Column<string>(type: "varchar(20)", maxLength: 20, nullable: false)
-                        .Annotation("MySql:CharSet", "utf8mb4"),
-                    date_created = table.Column<DateTime>(type: "datetime", nullable: false, defaultValueSql: "CURRENT_TIMESTAMP"),
-                    is_active = table.Column<bool>(type: "tinyint(1)", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_device_tokens", x => x.id);
                 })
                 .Annotation("MySql:CharSet", "utf8mb4");
 
@@ -556,10 +534,6 @@ namespace LOGIN.Migrations
             migrationBuilder.DropTable(
                 name: "communicate",
                 schema: "post");
-
-            migrationBuilder.DropTable(
-                name: "device_tokens",
-                schema: "notifications");
 
             migrationBuilder.DropTable(
                 name: "districtsPoints",

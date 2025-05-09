@@ -11,7 +11,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace LOGIN.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20250331215006_init")]
+    [Migration("20250509165337_init")]
     partial class init
     {
         /// <inheritdoc />
@@ -79,40 +79,6 @@ namespace LOGIN.Migrations
                     b.HasIndex("User_Id");
 
                     b.ToTable("communicate", "post");
-                });
-
-            modelBuilder.Entity("LOGIN.Entities.DeviceTokenEntity", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("char(36)")
-                        .HasColumnName("id");
-
-                    b.Property<DateTime>("DateCreated")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("datetime")
-                        .HasColumnName("date_created")
-                        .HasDefaultValueSql("CURRENT_TIMESTAMP");
-
-                    b.Property<bool>("IsActive")
-                        .HasColumnType("tinyint(1)")
-                        .HasColumnName("is_active");
-
-                    b.Property<string>("Platform")
-                        .IsRequired()
-                        .HasMaxLength(20)
-                        .HasColumnType("varchar(20)")
-                        .HasColumnName("platform");
-
-                    b.Property<string>("Token")
-                        .IsRequired()
-                        .HasMaxLength(500)
-                        .HasColumnType("varchar(500)")
-                        .HasColumnName("token");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("device_tokens", "notifications");
                 });
 
             modelBuilder.Entity("LOGIN.Entities.DistrictsPointsEntity", b =>

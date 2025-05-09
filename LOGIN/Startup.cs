@@ -126,20 +126,17 @@ namespace LOGIN
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
-            if (env.IsDevelopment())
-            {
-                app.UseSwagger();
-                app.UseSwaggerUI(c =>
-                {
-                    c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1");
-                    c.RoutePrefix = string.Empty;
-                });
-            }
-            else
-            {
-                app.UseExceptionHandler("/error");
-                app.UseHsts();
-            }
+                          
+            app.UseSwagger();
+            app.UseSwaggerUI();
+            //{
+            //    c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1");
+            //    c.RoutePrefix = string.Empty;
+            //});
+            //{
+            //    app.UseExceptionHandler("/error");
+            //    app.UseHsts();
+            //}
 
             app.UseHttpsRedirection();
             app.UseRouting();

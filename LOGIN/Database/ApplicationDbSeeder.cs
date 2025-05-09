@@ -51,7 +51,7 @@ namespace LOGIN.Database
 
         private static async Task SeedUsersAsync(UserManager<UserEntity> userManager, ILogger logger)
         {
-            var adminEmail = "admin@example.com";
+            var adminEmail = "aguassantarosa6@gmail.com";
             var adminUser = await userManager.FindByEmailAsync(adminEmail);
             if (adminUser == null)
             {
