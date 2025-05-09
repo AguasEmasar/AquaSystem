@@ -1,22 +1,19 @@
-# Build stage
+# Etapa de construcción
 FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
-WORKDIR /src
+WORKDIR /app
 
-# Copia el archivo .csproj y restaura las dependencias
-COPY ["LOGIN.csproj", "."]
-RUN dotnet restore "LOGIN.csproj"
+# Copiar archivos del proyecto y restaurar dependencias
+COPY . ./
+RUN dotnet restore
+RUN dotnet publish -c Release -o out
 
-# Copia el resto de los archivos y construye
-COPY . .
-RUN dotnet publish "LOGIN.csproj" -c Release -o /app/publish
-
-# Runtime stage
+# Etapa de ejecución
 FROM mcr.microsoft.com/dotnet/aspnet:8.0
 WORKDIR /app
-COPY --from=build /app/publish .
+COPY --from=build /app/out .
 
-ENV ASPNETCORE_ENVIRONMENT=Production
-ENV ASPNETCORE_URLS=http://+:4000
+# Exponer el puerto en el que la aplicación escucha
 EXPOSE 4000
 
+# Comando para ejecutar la aplicación
 ENTRYPOINT ["dotnet", "LOGIN.dll"]
