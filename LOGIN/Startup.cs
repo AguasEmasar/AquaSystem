@@ -136,7 +136,7 @@ namespace LOGIN
             //    app.UseHsts();
             //}
 
-            app.UseHttpsRedirection();
+            //app.UseHttpsRedirection();
             app.UseRouting();
 
             // Use CORS
